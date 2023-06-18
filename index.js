@@ -1,9 +1,24 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
-}
+    const complements = new Set();
+  
+    for (let i = 0; i < array.length; i++) {
+      const currentNum = array[i];
+      const complement = target - currentNum;
+  
+      if (complements.has(currentNum)) {
+        return true;
+      }
+  
+      complements.add(complement);
+    }
+  
+    return false;
+  }
+  
 
 /* 
   Write the Big O time complexity of your function here
+  the Big O time complexity is O(n)
 */
 
 /* 
@@ -12,6 +27,9 @@ function hasTargetSum(array, target) {
 
 /*
   Add written explanation of your solution here
+  the funcion iterates over the array and deduct each item from the target. if the empty
+  set has the item looped over, then the difference bewteen the target and that item
+  will be added to the array.
 */
 
 // You can run `node index.js` to view these console logs
